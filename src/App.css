@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+.header {
+	width: 100%;
+	height: 65px;
+	background-image: linear-gradient(90deg, #ffb048, #ff6a00);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-left: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header p {
+	margin: 0px;
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	font-size: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-button {
+	background-image: linear-gradient(90deg, #ffb048, #ff6a00);
+	padding: 10px 25px;
+	border-width: 0px;
+	font-size: 18px;
+	color: white;
+	font-weight: 600;
+	border-radius: 10px;
+	cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app-button:active {
+	background-image: none;
+	background-color: #ffb048;
 }
 
-.App-link {
-  color: #61dafb;
+.app-input {
+	border-radius: 10px;
+	border-color: #ff6a00;
+	border-style: solid;
+	border-width: 1.5px;
+	height: 40px;
+	width: 400px;
+	font-size: medium;
+	padding: 0px 5px;
+	transition: 300ms;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-input:focus {
+	background-color: white;
+	outline: none;
+	box-shadow: 0px 0px 5px 2px #ffc398;
+}
+
+.app-table {
+	width: 100%;
+	color: #595959;
+	text-align: left;
+	padding: 0px 10px;
+}
+
+.app-thead {
+	background-color: #ededed;
+	height: 30px;
+}
+
+.table-row {
+	height: 30px;
+}
+
+.table-row:hover {
+	background-color: #f1f1f1;
+}
+
+.table-row:nth-child(even) {
+	background-color: #ffe6d4;
+}
+
+.table-row:nth-child(even):hover {
+	background-color: #ffd9be;
+}
+
+.field-label {
+	width: 200px;
+	color: #595959;
+	text-align: right;
+	font-weight: 700;
+}
+
+.m-1 {
+	margin: 1rem;
+}
+
+.m-2 {
+	margin: 2rem;
+}
+
+.m-3 {
+	margin: 3rem;
+}
+
+.m-4 {
+	margin: 4rem;
+}
+
+.m-5 {
+	margin: 5rem;
+}
+
+.mt-2 {
+	margin-top: 2rem;
+}
+
+.ml-1 {
+	margin-left: 1rem;
+}
+
+.ml-5 {
+	margin-left: 5rem;
+}
+
+.pl-1 {
+	padding-left: 1rem;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.align-items-center {
+	align-items: center;
 }

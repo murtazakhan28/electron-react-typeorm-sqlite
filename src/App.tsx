@@ -1,30 +1,39 @@
-import React, { useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { useEffect } from "react";
+import "reflect-metadata";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createConnection } from "typeorm";
+import { Motors } from "./entities";
+import "./App.css";
+
+import { Header } from "./components";
+import { Home, Item } from "./pages";
 
 function App() {
-	useEffect(() => {
-		createConnection({ type: "sqlite", database: "db.sqlite3", entities: [] })
-			.then(connection => {
-				console.log("CONNECTION SUCCESSFUL");
-			})
-			.catch(error => {
-				console.log(error);
+	const connect = async () => {
+		try {
+			await createConnection({
+				type: "sqlite",
+				entities: [Motors],
+				database: "db.sqlite3",
 			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		connect();
 	}, []);
 
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-					Learn React
-				</a>
-			</header>
+		<div>
+			<Header />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/item/:id" element={<Item />} />
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
 }
