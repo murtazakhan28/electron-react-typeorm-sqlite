@@ -1,3 +1,4 @@
+require("./main.ts");
 const path = require("path");
 
 const { app, BrowserWindow } = require("electron");
@@ -6,10 +7,11 @@ const isDev = require("electron-is-dev");
 function createWindow() {
 	// Create the browser window.
 	const win = new BrowserWindow({
-		width: 800,
-		height: 600,
+		width: 1400,
+		height: 950,
 		webPreferences: {
 			nodeIntegration: true,
+			contextIsolation: false,
 		},
 	});
 
@@ -17,9 +19,9 @@ function createWindow() {
 	// win.loadFile("index.html");
 	win.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`);
 	// Open the DevTools.
-	//   if (isDev) {
-	//     win.webContents.openDevTools({ mode: 'detach' });
-	//   }
+	// if (isDev) {
+	// 	win.webContents.openDevTools({ activate: false, mode: "bottom" });
+	// }
 }
 
 // This method will be called when Electron has finished

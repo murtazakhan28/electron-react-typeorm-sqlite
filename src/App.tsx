@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import "reflect-metadata";
 import { createConnection } from "typeorm";
 
 function App() {
