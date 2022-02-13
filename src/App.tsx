@@ -15,6 +15,7 @@ function App() {
 				type: "sqlite",
 				entities: [Motors],
 				database: "db.sqlite3",
+				synchronize: true,
 			});
 		} catch (error) {
 			console.log(error);

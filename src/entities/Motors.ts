@@ -5,21 +5,21 @@ export default class Motors {
 	@PrimaryGeneratedColumn()
 	id: number;
 
-	@Column({ type: "string" })
+	@Column({ type: "text" })
 	srno: string;
 
-	@Column({ type: "string" })
+	@Column({ type: "text" })
 	type: string;
 
-	@Column({ type: "number" })
+	@Column({ type: "int" })
 	rpm: number;
 
-	@Column({ type: "number" })
+	@Column({ type: "int" })
 	hp: number;
 
-	@Column({ type: "string" })
+	@Column({ type: "text" })
 	position: string;
 
-	@Column({ type: "string" })
+	@Column({ type: "text" })
 	place: string;
 }
