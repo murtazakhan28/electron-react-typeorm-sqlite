@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "reflect-metadata";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createConnection } from "typeorm";
@@ -9,6 +9,7 @@ import { Header } from "./components";
 import { Home, Item } from "./pages";
 
 function App() {
+	const [DBConnected, setDBConnected] = useState(false);
 	const connect = async () => {
 		try {
 			await createConnection({
@@ -17,6 +18,7 @@ function App() {
 				database: "db.sqlite3",
 				synchronize: true,
 			});
+			setDBConnected(true);
 		} catch (error) {
 			console.log(error);
 		}
@@ -25,6 +27,8 @@ function App() {
 	useEffect(() => {
 		connect();
 	}, []);
+
+	if (!DBConnected) return null;
 
 	return (
 		<div>

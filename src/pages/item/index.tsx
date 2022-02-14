@@ -31,13 +31,14 @@ const Item = () => {
 		motor.hp = Number(hp);
 		motor.position = position;
 		motor.place = place;
-		await getRepository(Motors).save(motor);
+		const { id: motorId } = await getRepository(Motors).save(motor);
+		navigate(`/item/${motorId}`);
 	};
 
 	return (
 		<div>
 			<div className="row">
-				<Button onClick={_ => navigate(-1)} className="m-1">
+				<Button onClick={_ => navigate("/")} className="m-1">
 					Back
 				</Button>
 				<Button className="m-1" onClick={handleSave}>
